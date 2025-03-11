@@ -1,6 +1,6 @@
 #  RegreDanger Website 
 
-A little digital love letter in the form of a website for the most amazing boyfriend in the world! Please note that this site was not designed for phones, so for the best experience, please visit it in a desktop environment. ❤️
+A little digital love letter in the form of a website for the most amazing boyfriend in the world! Please note that this site was not designed for phones, so for the best experience, please visit it in a desktop environment. This website was originally uploaded to Neocities, however, I decided to upload it here as well to share my work a little and give my boyfriend better access. ❤️
 
 ## About this silly small project
 
