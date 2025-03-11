@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Regre Danger</title>
+    <link rel="icon" type="image/x-icon" href="../assets/background and visuals/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+
+        <!-- CODED WITH LOVE BY SKYE FOR REGRE DANGER!-->
+         <center>
+        <h2 class="cyber-h">SITEMAP</h2>
+      </center>
+
+
+      <div id="shot">
+        <div class="card">
+            <div id="component">
+              <span style= "color: rgb(192, 192, 192); font-family: 'Oxanium', serif;">
+                <b style= "font-weight: 600;">C:\site_map</b><br>
+                │<br>
+                ├──<b style="font-weight: 600;">intro</b> _log-in and warning<br>
+                ├──<b style="font-weight: 600;">home</b> _the homepage<br>
+                │ ├── <b style="font-weight: 600;">data</b> _infos about me<br>
+                │ ├── <b style="font-weight: 600;">updates</b>_update log <br>
+                │ ├──  <b style="font-weight: 600;">social</b> _all my social medias<br>
+                │ ├──  <b style="font-weight: 600;">credits</b> _infos about Skye<br>
+                │ ├──  <b style="font-weight: 600;">support</b> _support and contact<br>
+                │ └── <b style="font-weight: 600;">tools</b> _my digital tools<br>
+                │<br>
+                ├──<b style="font-weight: 600;">blog</b> _personal blog<br>
+                │ └── <b style="font-weight: 600;">entries</b> _list of blog entries<br>
+                │<br>
+                ├──<b style="font-weight: 600;">sitemap</b>_map of all pages (you are here)<br>
+                │ └── <b style="font-weight: 600;">_important resources</b><br>
+                │<br>
+                ├──<b style="font-weight: 600;">services</b>_important data about my services<br>
+                │ ├── <b style="font-weight: 600;">_commissions status</b><br>
+                │ ├── <b style="font-weight: 600;">_terms of service</b><br>
+                │ ├── <b style="font-weight: 600;"> _backend development</b><br>
+                │ ├── <b style="font-weight: 600;"> _data analysis </b><br>
+                │ └── <b style="font-weight: 600;">_process automotion</b> <br>
+                │<br>
+                ├── <b style="font-weight: 600;">about</b>_infos about this site<br>
+                ├── <b style="font-weight: 600;">resources</b> _useful tools and data<br>
+                └── <b style="font-weight: 600;">chat</b> _live digital chat (can be open inside of some pages)<br>
+            </span>
+              </span>
+            </div>
+        </div>
+        <div class="description">
+            <h1>REGRE DANGER</h1>
+            <p>COMMISSION STATUS: OPEN</p>
+        </div>
+        <div class="title"></div>
+        <div class="options">
+            <p>Information</p>
+            <div class="btns">
+                <button id="btn-0" onclick="setAnim(this)">PALESTINE</button>
+                <button id="btn-1" onclick="setAnim(this)">SAVE THE WHALES</button>
+                <button id="btn-2" onclick="setAnim(this)">LGBTQ+</button>
+            </div>
+            <p>The resources you will find here are from movements that I consider important, check them out on your own using the navigation panel above.</p>
+            <p>YOUR DIGITAL ID NUMBER:</p>
+            <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89510636"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89510636" /></noscript>
+        </div>
+    </div>
+
+<!-- MUSIC PLAYER-->
+<div class="music-player">
+  <span class="player-icon material-icons">music_note</span>
+  <span class="player-text" id="trackName">Loading...</span>
+      </div>
+  </div>
+</div>
+
+<!-- NAV BAR-->
+<div class="navigator">
+  <a href="../Main-page/index.html">
+      <span class="nav-text">Home</span>
+      <i class="material-icons">home</i>
+  </a>
+  <a href="#">
+      <span class="nav-text">About</span>
+      <i class="material-icons">info</i>
+  </a>
+  <a href="../Services/index.html">
+      <span class="nav-text">Services</span>
+      <i class="material-icons">design_services</i>
+  </a>
+  <a href="../Blogs/index.html">
+      <span class="nav-text">Blogs</span>
+      <i class="material-icons">close</i>
+  </a>
+  <a href="#" id="chat-link">
+      <span class="nav-text">Chat</span>
+      <i class="material-icons">chat</i>
+  </a>
+  <a href="#">
+      <span class="nav-text">Sitemap</span>
+      <i class="material-icons">share</i>
+  </a>
+  <a href="#">
+      <span class="nav-text">Resources</span>
+      <i class="material-icons">rss_feed</i>
+  </a>
+</div>
+
+<iframe 
+    id="chat-iframe" 
+    src="https://www3.cbox.ws/box/?boxid=3543826&boxtag=EEJNJW" 
+    width="100%" 
+    height="450" 
+    allowtransparency="yes" 
+    allow="autoplay" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0" 
+    scrolling="auto">
+</iframe>
+
+<audio id="hoverSound">
+  <source src="https://dl.dropbox.com/scl/fi/whwndenvcuufidm233f7z/hover.wav?rlkey=7yohzu5c9i2uj07r8l4kn377c&st=6t1x8055&dl=0" type="audio/wav">
+</audio>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const hoverSound = document.getElementById('hoverSound');
+      const navLinks = document.querySelectorAll('.navigator a');
+
+      navLinks.forEach(link => {
+          link.addEventListener('mouseenter', () => {
+              // Clone the audio to allow multiple rapid plays
+              const sound = hoverSound.cloneNode(true);
+              sound.play().catch(error => {
+                  console.log('Audio play failed:', error);
+              });
+          });
+      });
+  });
+</script>
+		 <!--Background!-->
+
+     <div class="video-background">
+      <video autoplay muted loop id="background-video" src="https://dl.dropbox.com/scl/fi/601qlxf124w7nd7jymdbc/background.mp4?rlkey=er92spkxl4yn44sx7t9h0h3k3&st=738d5u9a&dl=0"></video>
+  </div>
+
+  <!--JS-->
+  <audio id="glitch-sound">
+    <source src="https://dl.dropbox.com/scl/fi/djkklbzv7ld1ogpcyoczr/glitch.wav?rlkey=3xab6okzq2p5oaioyukr1ovgi&st=l4wqsbuf&dl=0" type="audio/wav">
+  </audio>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const chatLink = document.getElementById('chat-link');
+    const chatIframe = document.getElementById('chat-iframe');
+    const glitchSound = document.getElementById('glitch-sound');
+  
+    chatLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Play glitch sound
+        glitchSound.currentTime = 0; // Reset sound to start
+        glitchSound.play().catch(error => {
+            console.warn('Audio play failed:', error);
+        });
+  
+        // Toggle iframe visibility
+        chatIframe.classList.toggle('show');
+        chatIframe.classList.add('entrance-animation');
+  
+        // Glitch visual effect
+        let glitchCount = 0;
+        const glitchInterval = setInterval(() => {
+            if (glitchCount < 20) {
+                chatIframe.style.filter = 'contrast(1.2) brightness(1.1)';
+                setTimeout(() => {
+                    chatIframe.style.filter = 'none';
+                }, 50);
+                glitchCount++;
+            } else {
+                clearInterval(glitchInterval);
+            }
+        }, 100);
+    });
+  
+    // Close iframe when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!chatIframe.contains(e.target) && 
+            !chatLink.contains(e.target) && 
+            chatIframe.classList.contains('show')) {
+            chatIframe.classList.remove('show');
+        }
+    });
+  });
+  </script>
+ <div class="notification">ALERT! DANGER ZONE</div>
+ <script>
+   const notification = document.querySelector('.notification');
+   let originalText = notification.textContent;
+   
+   // Function to generate random binary string
+   function generateBinary(length) {
+     return Array.from({length}, () => Math.random() > 0.5 ? '1' : '0').join('');
+   }
+   // Function to toggle between original text and binary
+   function toggleText() {
+     if (notification.textContent === originalText) {
+       notification.textContent = generateBinary(originalText.length);
+     } else {
+       notification.textContent = originalText;
+     }
+   }
+   // Start the text toggling
+   let textInterval = setInterval(toggleText, 1000);
+   // Clear interval when animation ends (after 6 seconds)
+   setTimeout(() => {
+     clearInterval(textInterval);
+   }, 4000);
+
+ const audio = new Audio('https://dl.dropbox.com/scl/fi/g9wjmb26o573usnfleiij/alert.mp3?rlkey=5vf85ff3duam0a40x5k8lr4ti&st=hdhwcz10&dl=0');
+audio.play();
+audio.volume = 0.4;
+ </script>
+  <script src="main.js"></script>
+  <script src="../music.js"></script>
+  <script src="panel data.js"></script>
+  </body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Regre Danger</title>
+    <link rel="icon" type="image/x-icon" href="../assets/background and visuals/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <!-- CODED WITH LOVE BY SKYE FOR REGRE DANGER!-->
+
+<!-- MUSIC PLAYER-->
+<div class="music-player">
+  <span class="player-icon material-icons">music_note</span>
+  <span class="player-text" id="trackName">Loading...</span>
+      </div>
+  </div>
+</div>
+
+<!-- SETTINGS OF MAIN PAGE-->
+<div class="settings-backdrop"></div>
+<div class="settings-panel">
+    <div class="settings-header">
+        <h2>Settings</h2>
+        <button class="close-settings" onclick="handleIconClick()">×</button>
+    </div>
+    
+    <div class="settings-section">
+        <h3>Audio Settings</h3>
+        <div class="volume-control">
+            <input type="range" id="music-volume" class="volume-slider" min="0" max="100" value="20">
+            <div class="volume-value" id="music-volume-value">20%</div>
+        </div>
+        <div class="volume-control">
+            <input type="range" id="sfx-volume" class="volume-slider" min="0" max="100" value="50">
+            <div class="volume-value" id="sfx-volume-value">50%</div>
+        </div>
+    </div>
+
+    <div class="settings-section">
+        <h3>Visual Settings</h3>
+        <div class="volume-control">
+            <input type="range" id="brightness" class="volume-slider" min="0" max="100" value="100">
+            <div class="volume-value" id="brightness-value">100%</div>
+        </div>
+        <div class="settings-section">
+          <h3>Video Settings</h3>
+          <p>
+              <input type="checkbox" id="autoplay-toggle" checked>
+              Enable Video Autoplay
+          </p>
+      </div>
+      
+    </div>
+</div>
+    <!-- NAV BAR AND CONTENT-->
+
+    <div class="cyberpunk-icon-container">
+      <div class="cyberpunk" onclick="handleIconClick()">
+          <img src="../assets/gear.png" alt="Settings" id="settings-icon">
+      </div>
+  </div>
+
+  <div class="navigator">
+    <a href="#">
+        <span class="nav-text">Home</span>
+        <i class="material-icons">home</i>
+    </a>
+    <a href="#">
+        <span class="nav-text">About</span>
+        <i class="material-icons">info</i>
+    </a>
+    <a href="../Services/index.html">
+        <span class="nav-text">Services</span>
+        <i class="material-icons">design_services</i>
+    </a>
+    <a href="../Blogs/index.html">
+        <span class="nav-text">Blogs</span>
+        <i class="material-icons">close</i>
+    </a>
+    <a href="#" id="chat-link">
+        <span class="nav-text">Chat</span>
+        <i class="material-icons">chat</i>
+    </a>
+    <a href="../Sitemap/index.html">
+        <span class="nav-text">Sitemap</span>
+        <i class="material-icons">share</i>
+    </a>
+    <a href="#">
+        <span class="nav-text">Resources</span>
+        <i class="material-icons">rss_feed</i>
+    </a>
+</div>
+
+
+<iframe 
+    id="chat-iframe" 
+    src="https://www3.cbox.ws/box/?boxid=3543826&boxtag=EEJNJW" 
+    width="100%" 
+    height="450" 
+    allowtransparency="yes" 
+    allow="autoplay" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0" 
+    scrolling="auto">
+</iframe>
+
+
+
+      <div id="shot">
+        <div class="card">
+            <div id="component">
+                <p>Hello everyone.</p>
+                <p>I'm RegreDanger, a 18-year-old dev driven by a love for tech and hands-on building! I'm a programming enthusiast with a passion for coding and the determination to achieve my goals and complete my projects. I love automating processes as much as I enjoy building on the server side!</p>
+                <p>I am currently studying a major in Technical Informatics.</p>
+                <p>You can check out my most recent projects here and on github.</p>
+            </div>
+        </div>
+        <div class="description">
+            <h1>REGRE DANGER</h1>
+            <p>COMMISSION STATUS: OPEN</p>
+        </div>
+        <div class="title"></div>
+        <div class="options">
+            <p>Information</p>
+            <div class="btns">
+                <button id="btn-0" onclick="setAnim(this)">DATA</button>
+                <button id="btn-1" onclick="setAnim(this)">SUPPORT</button>
+                <button id="btn-2" onclick="setAnim(this)">CREDITS</button>
+                <button id="btn-3" onclick="setAnim(this)">TOOLS</button>
+                <button id="btn-4" onclick="setAnim(this)">SOCIAL</button>
+                <button id="btn-5" onclick="setAnim(this)">UPDATES</button>
+            </div>
+            <p>Currently, my specializations are backend developer, data analysis and process automation. Check out my github at <a href="https://github.com/RegreDanger" target="_blank">@RegreDanger!</a></p>
+            <p>YOUR DIGITAL ID NUMBER:</p>
+           <!-- FC2 Counter  Starts here -->
+           <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89510636"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89510636" /></noscript>
+        </div>
+    </div>
+
+
+		 <!--Background!-->
+
+     <div class="video-background">
+      <video autoplay muted loop id="background-video" src="https://dl.dropbox.com/scl/fi/601qlxf124w7nd7jymdbc/background.mp4?rlkey=er92spkxl4yn44sx7t9h0h3k3&st=bks8cpvr&dl=0"></video>
+  </div>
+
+
+<!---Javacript :3-->
+
+<audio id="hoverSound">
+  <source src="https://dl.dropbox.com/scl/fi/whwndenvcuufidm233f7z/hover.wav?rlkey=7yohzu5c9i2uj07r8l4kn377c&st=rwt6eoi9&dl=0" type="audio/wav">
+</audio>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const hoverSound = document.getElementById('hoverSound');
+      const navLinks = document.querySelectorAll('.navigator a');
+
+      navLinks.forEach(link => {
+          link.addEventListener('mouseenter', () => {
+              // Clone the audio to allow multiple rapid plays
+              const sound = hoverSound.cloneNode(true);
+              sound.play().catch(error => {
+                  console.log('Audio play failed:', error);
+              });
+          });
+      });
+  });
+</script>
+<script>
+    const settingsPanel = document.querySelector('.settings-panel');
+    const settingsBackdrop = document.querySelector('.settings-backdrop');
+    let isPanelOpen = false;
+
+    function handleIconClick() {
+        isPanelOpen = !isPanelOpen;
+        settingsPanel.classList.toggle('active');
+        settingsBackdrop.classList.toggle('active');
+        
+        // Play hover sound when opening/closing panel
+        const hoverSound = new Audio('https://dl.dropbox.com/scl/fi/whwndenvcuufidm233f7z/hover.wav?rlkey=7yohzu5c9i2uj07r8l4kn377c&st=rwt6eoi9&dl=0');
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+    }
+
+    // Close panel when clicking backdrop
+    settingsBackdrop.addEventListener('click', () => {
+        if (isPanelOpen) {
+            handleIconClick();
+        }
+    });
+
+    // Volume controls functionality
+    const volumeSliders = document.querySelectorAll('.volume-slider');
+
+    volumeSliders.forEach(slider => {
+        const valueDisplay = document.getElementById(`${slider.id}-value`);
+        
+        slider.addEventListener('input', (e) => {
+            const value = e.target.value;
+            valueDisplay.textContent = `${value}%`;
+            
+            if (slider.id === 'music-volume') {
+                musicPlayer.audioPlayer.volume = value / 100;
+            } else if (slider.id === 'sfx-volume') {
+                const hoverSound = new Audio('https://dl.dropbox.com/scl/fi/whwndenvcuufidm233f7z/hover.wav?rlkey=7yohzu5c9i2uj07r8l4kn377c&st=rwt6eoi9&dl=0');
+                hoverSound.volume = value / 100;
+            }
+        });
+    });
+
+    // Autoplay toggle for background video
+    const autoplayToggle = document.getElementById('autoplay-toggle');
+    autoplayToggle.addEventListener('change', (e) => {
+        if (!e.target.checked) {
+            document.getElementById('background-video').pause();
+        } else {
+            document.getElementById('background-video').play();
+        }
+    });
+
+    // Brightness control functionality
+    const brightnessSlider = document.getElementById('brightness');
+    brightnessSlider.addEventListener('input', (e) => {
+        const value = e.target.value;
+        document.getElementById('brightness-value').textContent = `${value}%`;
+        document.body.style.filter = `brightness(${value}%)`;
+    });
+
+    // Escape key to close panel
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isPanelOpen) {
+            handleIconClick();
+        }
+    });
+</script>
+<audio id="glitch-sound">
+  <source src="https://dl.dropbox.com/scl/fi/djkklbzv7ld1ogpcyoczr/glitch.wav?rlkey=3xab6okzq2p5oaioyukr1ovgi&st=fh0kcky1&dl=0" type="audio/wav">
+</audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const chatLink = document.getElementById('chat-link');
+  const chatIframe = document.getElementById('chat-iframe');
+  const glitchSound = document.getElementById('glitch-sound');
+
+  chatLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Play glitch sound
+      glitchSound.currentTime = 0; // Reset sound to start
+      glitchSound.play().catch(error => {
+          console.warn('Audio play failed:', error);
+      });
+
+      // Toggle iframe visibility
+      chatIframe.classList.toggle('show');
+      chatIframe.classList.add('entrance-animation');
+
+      // Glitch visual effect
+      let glitchCount = 0;
+      const glitchInterval = setInterval(() => {
+          if (glitchCount < 20) {
+              chatIframe.style.filter = 'contrast(1.2) brightness(1.1)';
+              setTimeout(() => {
+                  chatIframe.style.filter = 'none';
+              }, 50);
+              glitchCount++;
+          } else {
+              clearInterval(glitchInterval);
+          }
+      }, 100);
+  });
+
+  // Close iframe when clicking outside
+  document.addEventListener('click', (e) => {
+      if (!chatIframe.contains(e.target) && 
+          !chatLink.contains(e.target) && 
+          chatIframe.classList.contains('show')) {
+          chatIframe.classList.remove('show');
+      }
+  });
+});
+</script>
+  <script src="main.js"></script>
+  <script src="panel data.js"></script>
+  <script src="music.js"></script>
+  </body>
+</html>

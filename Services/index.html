@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Regre Danger</title>
+    <link rel="icon" type="image/x-icon" href="../assets/background and visuals/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div id="root"></div>
+
+    <!-- React Dependencies -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Music Player -->
+    <div class="music-player">
+      <span class="player-icon material-icons">music_note</span>
+      <span class="player-text" id="trackName">Loading...</span>
+    </div>
+
+
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+    
+      const channelMessages = {
+        "COMMISSIONS STATUS": [
+          { author: "RegreDanger", time: "10:30pm", content: "Currently accepting new commissions!" },
+          { author: "RegreDanger", time: "10:31pm", content: "You can check the status of your commission in the Trello queue." }
+        ],
+        "PROCESS AUTOMATION": [
+          { author: "RegreDanger", time: "09:15pm", content: "I currently offer:" },
+          { author: "RegreDanger", time: "09:16pm", content: "Development of scripts to automate repetitive tasks, such as file handling or format conversion, and automated data sorting and searching." }
+        ],
+        "BACKEND DEVELOPMENT": [
+          { author: "RegreDanger", time: "03:20pm", content: "Custom Software Development: Creation of tailored applications (currently desktop-only) based on your needs. Implementation of management systems such as inventory, sales, among others." },
+          { author: "RegreDanger", time: "03:21pm", content: "API Development: Development of RESTful APIs for web or mobile projects. Integration of third-party APIs into your existing applications." },
+          { author: "RegreDanger", time: "03:21pm", content: "Important Note: For any developed API, you must provide a server for deployment. Due to my current financial limitations, I cannot cover cloud computing services." },
+          { author: "RegreDanger", time: "03:21pm", content: "Maintenance Services: Updating and maintaining existing applications. Code and resource optimization in your projects." },
+          { author: "RegreDanger", time: "03:21pm", content: "Creation of Reusable Libraries or Scripts: Development of custom modules or packages for languages like Python or Java." },
+          { author: "RegreDanger", time: "03:21pm", content: "Technical Support for Programmers: Code review and improvement, personalized guidance for programming beginners and resolution of specific issues in projects (debugging, logic, optimization)." }
+        ],
+        "TERMS OF SERVICE": [
+          { author: "RegreDanger", time: "11:04pm", content: "Please check the options on the left for the specific service you are looking for." },
+          { author: "RegreDanger", time: "11:04pm", content: "You must provide a clear and detailed description of the project or service you need. I will send you an initial quote before starting the work. This quote is approximate and may vary if features are added or removed during development. If you request consulting or maintenance services, you must specify the required days and times. These services have a minimum cost of $100 MXN (5 USD) per hour." },
+          { author: "RegreDanger", time: "11:04pm", content: "I accept payments via bank transfer, PayPal, or Binance for international clients. If you're in Mexico, I also accept payments through local apps. A 50% upfront payment of the total cost is required at the start of the project. The remainder will be paid upon completion, unless another arrangement is made. Work will not begin until the upfront payment is received." },
+          { author: "RegreDanger", time: "11:04pm", content: "No refunds will be issued for services already completed and delivered. If you decide to cancel before the project is finished, you will only receive a proportional refund for the incomplete work, minus administrative costs. If you abandon the service (e.g., fail to respond or do not follow project updates) for more than 3 days, you forfeit the right to a refund." },
+          { author: "RegreDanger", time: "11:04pm", content: "You must provide all necessary information and materials to execute the project. You are responsible for reviewing and approving the work within the agreed timelines." },
+          { author: "RegreDanger", time: "11:04pm", content: "All software I develop will belong to you, including the source code. My name will appear in the development credits. You can modify, experiment with, and work on the code, but note that this may disrupt or corrupt parts of the software." },
+          { author: "RegreDanger", time: "11:04pm", content: "All information you share will be treated as confidential and will not be disclosed without your consent." },
+          { author: "RegreDanger", time: "11:04pm", content: "There is no limit to minor revisions within the agreed timeline, as long as they remain within the original project scope. Major revisions or significant changes after project delivery will incur additional costs." },
+          { author: "RegreDanger", time: "11:04pm", content: "I do not accept projects with strict deadlines. If it’s a small project with a short deadline, I will evaluate it. Larger projects will be worked on based on my availability, with an estimated timeframe ranging from weeks to months, depending on their complexity. Each project will be handled in the order of service requests." },
+          { author: "RegreDanger", time: "11:04pm", content: "I am not responsible for indirect damages or issues arising from the use of the software. I also do not guarantee specific results if they depend on external or third-party factors." },
+          { author: "RegreDanger", time: "11:04pm", content: "I reserve the right to modify these terms at any time. If changes are made, I will notify you in advance." }
+        ],
+        "DATA ANALYSIS": [
+          { author: "RegreDanger", time: "02:15pm", content: "Data Analysis and Visualization:" },
+          { author: "RegreDanger", time: "02:16pm", content: "Creation of interactive dashboards in Python using tools like Pandas, Matplotlib, or Seaborn. Data optimization and analysis in spreadsheets like Excel." },
+          { author: "RegreDanger", time: "02:16pm", content: "Design, optimization, and maintenance of databases, data migration between systems and creation of custom SQL queries." }
+        ]
+      };
+    
+      const directMessages = {
+        "SKYE": [
+          { author: "Skye", time: "10:30pm", content: "Hey..." },
+          { author: "Skye", time: "10:31pm", content: "If you're interested in seeing a little more of my work, don't forget to check out my website, Skye Journey!" }
+        ],
+        "CREDITS": [
+          { author: "Credits", time: "10:30pm", content: "This website will always be a work in progress! There is always something to improve. The biggest credits for this section go to the open source community." }
+        ],
+        "MEGABUILDING H10 ADMINISTRATION": [
+          { author: "Megabuilding H10 Administration", time: "10:30pm", content: "??????" }
+        ]
+      };
+    
+      function App() {
+        const [activeChannel, setActiveChannel] = useState("TERMS OF SERVICE");
+        const [isDirectMessage, setIsDirectMessage] = useState(false);
+        const [searchQuery, setSearchQuery] = useState("");
+        const [messageInput, setMessageInput] = useState("");
+        const [audio, setAudio] = useState(new Audio("../assets/background and visuals/message.mp3"));
+    
+        const filteredChannels = Object.keys(channelMessages).filter(channel => 
+          channel.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    
+        const handleMessageSubmit = (e) => {
+          e.preventDefault();
+          if (messageInput.trim()) {
+            const newMessage = {
+              author: "RegreDanger",
+              time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+              content: messageInput
+            };
+            
+            if (isDirectMessage) {
+              directMessages[activeChannel].push(newMessage);
+            } else {
+              channelMessages[activeChannel].push(newMessage);
+            }
+            
+            setMessageInput("");
+            audio.play();
+          }
+        };
+    
+        const handleChannelClick = (channel, isDirect = false) => {
+          setActiveChannel(channel);
+          setIsDirectMessage(isDirect);
+          audio.play();
+        };
+    
+        const currentMessages = isDirectMessage 
+          ? directMessages[activeChannel] 
+          : channelMessages[activeChannel];
+    
+        return React.createElement('div', { id: "root" },
+          React.createElement('div', { className: "app-skeleton" },
+            // Header
+            React.createElement('header', { className: "app-header" },
+              React.createElement('div', { className: "app-header__anchor" },
+                React.createElement('span', { className: "app-header__anchor__text" }, "Night-City NetWire")
+              ),
+              React.createElement('nav', null,
+                React.createElement('ul', { className: "nav" },
+                  React.createElement('li', { className: "nav__item" },
+                    React.createElement('a', { className: "nav__link", href: "../index.html" },
+                      React.createElement('span', { className: "nav__link__element" }, "Home")
+                    )
+                  ),
+                  React.createElement('li', { className: "nav__item" },
+                    React.createElement('a', { className: "nav__link nav__link--active", href: "#" },
+                      React.createElement('span', { className: "nav__link__element" }, "Services"),
+                      React.createElement('span', { className: "nav__link__element" },
+                        React.createElement('span', { className: "badge" }, "11")
+                      )
+                    )
+                  ),
+                  React.createElement('li', { className: "nav__item" },
+                    React.createElement('a', { className: "nav__link", href: "../Blogs/index.html" },
+                      React.createElement('span', { className: "nav__link__element" }, "Blogs")
+                    )
+                  ),
+                  React.createElement('li', { className: "nav__item" },
+                    React.createElement('a', { className: "nav__link", href: "#" },
+                      React.createElement('span', { className: "nav__link__element" }, "Sitemap")
+                    )
+                  ),
+                  React.createElement('li', { className: "nav__item" },
+                    React.createElement('a', { className: "nav__link", href: "#" },
+                      React.createElement('span', { className: "nav__link__element" }, "Resources")
+                    )
+                  )
+                )
+              )
+            ),
+            
+            // App Container
+            React.createElement('div', { className: "app-container" },
+              // Sidebar
+              React.createElement('div', { className: "app-a" },
+                // Search
+                React.createElement('form', { className: "form-search" },
+                  React.createElement('div', { className: "form-group" },
+                    React.createElement('div', { className: "form-control form-control--with-addon" },
+                      React.createElement('input', { 
+                        name: "query", 
+                        placeholder: "Search...", 
+                        type: "text",
+                        value: searchQuery,
+                        onChange: (e) => setSearchQuery(e.target.value)
+                      }),
+                      React.createElement('div', { className: "form-control__addon form-control__addon--prefix" },
+                        React.createElement('svg', { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24" },
+                          React.createElement('path', { d: "M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7 7-7 3.14-7 7 3.141 7 7 7z" })
+                        )
+                      )
+                    )
+                  )
+                ),
+                
+                // Channel List
+                React.createElement('div', { className: "nav-section" },
+                  React.createElement('div', { className: "nav-section__header" },
+                    React.createElement('h2', { className: "nav-section__title" }, "Feeds")
+                  ),
+                  React.createElement('div', { className: "nav-section__body" },
+                    React.createElement('ul', { className: "nav" },
+                      filteredChannels.map(channel => 
+                        React.createElement('li', { key: channel, className: "nav__item" },
+                          React.createElement('a', { 
+                            className: "nav__link" + (!isDirectMessage && activeChannel === channel ? ' nav__link--active' : ''),
+                            href: "#",
+                            onClick: (e) => {
+                              e.preventDefault();
+                              handleChannelClick(channel, false);
+                            }
+                          },
+                            React.createElement('span', { className: "channel-link" },
+                              React.createElement('span', { className: "channel-link__icon" }, "#"),
+                              React.createElement('span', { className: "channel-link__element" }, channel)
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                ),
+                
+                // Direct Messages
+                React.createElement('div', { className: "nav-section" },
+                  React.createElement('div', { className: "nav-section__header" },
+                    React.createElement('h2', { className: "nav-section__title" }, "Direct")
+                  ),
+                  React.createElement('div', { className: "nav-section__body" },
+                    React.createElement('ul', { className: "nav" },
+                      React.createElement('li', { className: "nav__item" },
+                        React.createElement('a', { 
+                          className: "nav__link" + (isDirectMessage && activeChannel === "SKYE" ? ' nav__link--active' : ''),
+                          href: "#",
+                          onClick: (e) => {
+                            e.preventDefault();
+                            handleChannelClick("SKYE", true);
+                          }
+                        },
+                          React.createElement('span', { className: "conversation-link conversation-link--online conversation-link--unread" },
+                            React.createElement('span', { className: "conversation-link__icon" }, ""),
+                            React.createElement('span', { className: "conversation-link__element" }, "Skye"),
+                            React.createElement('span', { className: "conversation-link__element" },
+                              React.createElement('span', { className: "badge" }, "2")
+                            )
+                          )
+                        )
+                      ),
+                      React.createElement('li', { className: "nav__item" },
+                        React.createElement('a', { 
+                          className: "nav__link" + (isDirectMessage && activeChannel === "CREDITS" ? ' nav__link--active' : ''),
+                          href: "#",
+                          onClick: (e) => {
+                            e.preventDefault();
+                            handleChannelClick("CREDITS", true);
+                          }
+                        },
+                          React.createElement('span', { className: "conversation-link conversation-link--online conversation-link--unread" },
+                            React.createElement('span', { className: "conversation-link__icon" }, ""),
+                            React.createElement('span', { className: "conversation-link__element" }, "CREDITS"),
+                            React.createElement('span', { className: "conversation-link__element" },
+                              React.createElement('span', { className: "badge" }, "1")
+                            )
+                          )
+                        )
+                      ),
+                      React.createElement('li', { className: "nav__item" },
+                        React.createElement('a', { 
+                          className: "nav__link" + (isDirectMessage && activeChannel === "MEGABUILDING H10 ADMINISTRATION" ? ' nav__link--active' : ''),
+                          href: "#",
+                          onClick: (e) => {
+                            e.preventDefault();
+                            handleChannelClick("MEGABUILDING H10 ADMINISTRATION", true);
+                          }
+                        },
+                          React.createElement('span', { className: "conversation-link" },
+                            React.createElement('span', { className: "conversation-link__icon" }, ""),
+                            React.createElement('span', { className: "conversation-link__element" }, "Megabuilding H10 Administration")
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+              
+              // Main Channel Feed
+              React.createElement('div', { className: "app-main" },
+                React.createElement('div', { className: "channel-feed" },
+                  // Segment Topbar with Three Dot Menu
+                  React.createElement('div', { className: "segment-topbar" },
+                    React.createElement('div', { className: "segment-topbar__header" },
+                      React.createElement('span', { className: "segment-topbar__overline" }, "NetWire_Seed: d869db7fe62fb07c25a0403ecaea55031744b5fb"),
+                      React.createElement('h4', { className: "text-heading4 segment-topbar__title" },
+                        React.createElement('span', { className: "channel-link" },
+                          React.createElement('span', { className: "channel-link__icon" }, "#"),
+                          React.createElement('span', { className: "channel-link__element" }, activeChannel)
+                        )
+                      )
+                    ),
+                    // Three Dot Menu
+                    React.createElement('div', { className: "segment-topbar__aside" },
+                      React.createElement('div', { className: "button-toolbar" },
+                        // Conversation
+                        React.createElement('a', { className: "button button--default" },
+                          React.createElement('svg', { className: "button__icon", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24" },
+                            React.createElement('path', { d: "M18 9.5c2.481 0 4.5 1.571 4.5 3.503 0 1.674-1.703 3.48-4.454 3.48-.899 0-1.454-.156-2.281-.357-.584.358-.679.445-1.339.686.127-.646.101-.924.081-1.56-.583-.697-1.007-1.241-1.007-2.249 0-1.932 2.019-3.503 4.5-3.503zm0-1.5c-3.169 0-6 2.113-6 5.003 0 1.025.37 2.032 1.023 2.812.027.916-.511 2.228-.997 3.184 1.302-.234 3.15-.754 3.989-1.268.709.173 1.388.252 2.03.252 3.542 0 5.954-2.418 5.954-4.98.001-2.906-2.85-5.003-5.999-5.003zm-.668 6.5h-1.719v-.369l.938-1.361v-.008h-.869v-.512h1.618v.396l-.918 1.341v.008h.95v.505zm3.035 0h-2.392v-.505l1.306-1.784v-.011h-1.283v-.7h2.25v.538l-1.203 1.755v.012h1.322v.695zm-10.338 9.5c1.578 0 2.971-1.402 2.971-3h-6c0 1.598 1.45 3 3.029 3zm.918-7.655c-.615-1.001-.947-2.159-.947-3.342 0-3.018 2.197-5.589 5.261-6.571-.472-1.025-1.123-1.905-2.124-2.486-.644-.374-1.041-1.07-1.04-1.82v-.003c0-1.173-.939-2.123-2.097-2.123s-2.097.95-2.097 2.122v.003c.001.751-.396 1.446-1.041 1.82-4.667 2.712-1.985 11.715-6.862 13.306v1.749h9.782c.425-.834.931-1.764 1.165-2.655zm-.947-15.345c.552 0 1 .449 1 1 0 .552-.448 1-1 1s-1-.448-1-1c0-.551.448-1 1-1z" })
+                      )
+                    ),
+                    // Filter
+                    React.createElement('a', { className: "button button--default" },
+                      React.createElement('svg', { className: "button__icon", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24" },
+                        React.createElement('path', { d: "M6 16h-6v-3h6v3zm-2-5v-10h-2v10h2zm-2 7v5h2v-5h-2zm13-7h-6v-3h6v3zm-2-5v-5h-2v5h2zm-2 7v10h2v-10h-2zm13 3h-6v-3h6v3zm-2-5v-10h-2v10h2zm-2 7v5h2v-5h-2z" })
+                      )
+                    ),
+                    // More Options
+                    React.createElement('a', { className: "button button--default" },
+                      React.createElement('svg', { className: "button__icon", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24" },
+                        React.createElement('path', { d: "M12 18c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z" })
+                      )
+                    )
+                  )
+                )
+              ),
+              
+              // Messages
+              React.createElement('div', { className: "channel-feed__body" },
+                currentMessages.map((message, index) => 
+                  React.createElement('div', { key: index, className: "message" },
+                    React.createElement('div', { className: "message__body" },
+                      React.createElement('div', null, message.content)
+                    ),
+                    React.createElement('div', { className: "message__footer" },
+                      React.createElement('span', { className: "message__authoring" }, message.author),
+                      " - ", message.time
+                    )
+                  )
+                )
+              ),
+              
+              // Message Input
+              React.createElement('div', { className: "channel-feed__footer" },
+                React.createElement('form', { 
+                  className: "channel-message-form", 
+                  onSubmit: handleMessageSubmit 
+                },
+                  React.createElement('div', { className: "form-group" },
+                    React.createElement('label', { className: "form-label", htmlFor: "message" }, "Message"),
+                    React.createElement('div', { className: "form-control" },
+                      React.createElement('textarea', { 
+                        id: "message", 
+                        className: "form-control", 
+                        name: "message",
+                        value: messageInput,
+                        onChange: (e) => setMessageInput(e.target.value)
+                      })
+                    )
+                  ),
+                  React.createElement('div', { className: "form-footer" },
+                    React.createElement('button', { 
+                      className: "button button--primary button--size-xl", 
+                      type: "submit" 
+                    },
+                      React.createElement('span', { className: "button__content" }, "Send")
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          
+          // App B
+          React.createElement('div', { className: "app-b" },
+            React.createElement('div', { className: "pad" },
+              React.createElement('div', { className: "pad__body" },
+                React.createElement('h4', { className: "text-heading3 undefined" }, "What's this?"),
+                React.createElement('p', { className: "text-paragraph1 undefined" }, ">>> This page has my current work and terms of service for my commissions, so feel free to explore it by browsing the chats and feed menu. If you have any questions, feel free to contact me via discord, email or social media on the home page."),
+                React.createElement('p', { className: "text-paragraph1 undefined" }, "Good luck!")
+              )
+            )
+          )
+        )
+      )
+                  );
+    }
+    
+    // Render the App
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(React.createElement(App));
+    </script>
+    
+
+
+    <script src="../music.js"></script>
+  </body>
+</html>

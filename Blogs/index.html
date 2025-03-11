@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Regre Danger</title>
+    <link rel="icon" type="image/x-icon" href="../assets/background and visuals/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  </head>
+  <body>
+
+
+        <!-- CODED WITH LOVE BY SKYE FOR REGRE DANGER!-->
+     
+
+    <!-- MUSIC PLAYER-->
+<div class="music-player">
+  <span class="player-icon material-icons">music_note</span>
+  <span class="player-text" id="trackName">Loading...</span>
+      </div>
+  </div>
+</div>
+
+<div class="video-background">
+  <video autoplay muted loop id="background-video" src="https://dl.dropbox.com/scl/fi/601qlxf124w7nd7jymdbc/background.mp4?rlkey=er92spkxl4yn44sx7t9h0h3k3&st=738d5u9a&dl=0"></video>
+</div>
+    <div class="ui frosted canvas centered-container">
+      <div class="content-wrapper left-aligned">
+          <div class="sidebar container">
+              <div class="container__title translucent">Blogs entries</div>
+              <div class="list">
+                  <div class="list__item active"> <a href="memo-notes/updates (DO NOT TOUCH)/updates.html" onclick="return loadPage(this.href)">News & Updates</a></div>
+                  <div class="list__item"><a href="memo-notes/newsletter (DO NOT TOUCH)/newsletters-main.html" onclick="return loadPage(this.href)">Newsletters</a></div>
+                  <div class="list__item sub-item"><a href="memo-notes/newsletter (DO NOT TOUCH)/Developer’s Digest – January Edition.html" onclick="return loadPage(this.href)">Developer’s Digest – January Edition</a></div>
+                  <div class="list__item sub-item">DATA BLOCKED</div>
+                  <div class="list__item">Data Blocked</div>
+                  <div class="list__item">Data Blocked</div>
+                  <div class="list__item">Data Blocked</div>
+                  <div class="list__item">Data Blocked</div>
+              </div>
+          </div>
+
+          <div class="main-content container">
+              <div class="container__title">DATABASE</div>
+              <div class="list">
+                <iframe src="memo-notes/main-entry.html" id="diaryFrame" width="580" height="520"></iframe> 
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="ui centered-container content layer bottom">
+      <div class="intro">
+          <h1 class="intro__title">Welcome to the</h1>
+          <h2 class="intro__subtitle">Database</h2>
+      </div>
+  </div>
+
+
+  <!--NAV BAR-->
+  <nav class="nav-container">
+    <ul class="nav-list">
+        <li class="nav-item">
+            <a href="../Main-page/index.html" class="nav-link">
+                <span class="material-icons">home</span>
+                <span class="nav-text">HOME</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <span class="material-icons">article</span>
+                <span class="nav-text">BLOGS</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="../Sitemap/index.html" class="nav-link">
+                <span class="material-icons">map</span>
+                <span class="nav-text">SITEMAP</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="../Services/index.html" class="nav-link">
+                <span class="material-icons">build</span>
+                <span class="nav-text">SERVICES</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="../About/index.html" class="nav-link">
+                <span class="material-icons">info</span>
+                <span class="nav-text">ABOUT</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="../Resources/index.html" class="nav-link">
+                <span class="material-icons">library_books</span>
+                <span class="nav-text">RESOURCES</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!--JAVASCRIPT LOL-->
+<script>
+
+const hoverSoundUrl = "https://dl.dropbox.com/scl/fi/whwndenvcuufidm233f7z/hover.wav?rlkey=7yohzu5c9i2uj07r8l4kn377c&st=j4a32rt8&dl=0";
+
+
+const hoverSound = new Audio(hoverSoundUrl);
+
+const navItems = document.querySelectorAll('.nav-item');
+
+
+navItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        hoverSound.currentTime = 0; 
+        hoverSound.play(); 
+    });
+});
+
+</script>
+  <script>
+      
+    const pageFlipSound = new Audio('https://dl.dropbox.com/scl/fi/czqna1esk75oovgpdn4ev/message.mp3?rlkey=g0squi6vgmcpc63ajbcngwhj0&st=8v5xzr8t&dl=0');
+    
+    function loadPage(url) {
+
+        pageFlipSound.currentTime = 0;
+        pageFlipSound.play()
+        .catch(error => console.log('Audio playback failed:', error));
+        
+        const frame = document.getElementById('diaryFrame');
+        frame.style.opacity = '0';
+        
+        setTimeout(() => {
+            frame.src = url;
+            frame.style.opacity = '1';
+        }, 300);
+        
+        return false;
+    }
+
+    document.getElementById('diaryFrame').addEventListener('load', function() {
+        this.style.opacity = '1';
+    });
+</script>
+  <script src="main.js"></script>
+  <script src="../music.js"></script>
+  </body>
+</html>

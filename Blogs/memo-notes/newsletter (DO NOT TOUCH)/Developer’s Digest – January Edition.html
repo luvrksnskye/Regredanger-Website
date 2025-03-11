@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Regre Danger</title>
+    <link rel="icon" type="image/x-icon" href="../../../assets/background and visuals/favicon.png">
+  </head>
+  <body>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+      /*#region headings*/
+.cyber-h
+{
+    display: block;
+    width: 60%;
+    color:#ff5c5c;
+    -webkit-animation: entrance 400ms 1400ms linear backwards 1;
+	animation: entrance 400ms 1400ms linear backwards 1;
+}
+
+.cyber-h::after
+{
+    content: ' ';
+    width: 70%;
+    height: 6px;
+    display: block;
+    background-color: var(--red);
+    clip-path: polygon(0 0, 0 100%, 10% 100%, calc(10% + 4px) 2px, 100% 2px, 100% 0);
+    -webkit-animation: entrance 400ms 1400ms linear backwards 1;
+	animation: entrance 400ms 1400ms linear backwards 1;
+}
+
+h1.cyber-h
+{
+    font-size: 3.0rem;
+    margin: 2.0rem 0;
+    width: 100%;
+}
+
+h2.cyber-h
+{
+    font-size: 2.5rem;
+    margin: 1.6rem 0;
+    width: 90%;
+}
+
+h3.cyber-h
+{
+    font-size: 2rem;
+    margin: 1.4rem 0;
+    width: 80%;
+}
+
+h4.cyber-h
+{
+    font-size: 1.5rem;
+    margin: 1.2rem 0;
+    width: 70%;
+}
+
+h5.cyber-h
+{
+    font-size: 1.0rem;
+    margin: 1.0rem 0;
+    width: 60%;
+}
+
+h6.cyber-h
+{
+    font-size: 1.0rem;
+    margin: 1.0rem 0;
+    font-weight: 400;
+    width: 60%;
+}
+
+:root 
+{
+    --root-font-size: 18px;
+
+    --yellow: #f8ef02;
+    --cyan: #00ffd2;
+    --red: #ff003c;
+    --blue: #136377;
+    --green: #446d44;
+    --purple: purple;
+    --black: #000;
+    --white: #fff;
+    --dark: #333;
+
+    --fg: var(--black);
+    --bg: transparent;
+    --ac: var(--black);
+
+    --yellow-cyberpunk-font: #feef00;
+    --cyan-cyberpunk-font1:#46dffb;
+    --cyan-cyberpunk-font2:#45aefb;
+
+    --banner-color1: var(--purple); 
+    --banner-color2: var(--red);
+    --banner-color3: var(--yellow); 
+    --banner-color4: var(--cyan); 
+    --banner-gradient-stop: 405px;
+
+    --input-padding-top: 0px;
+    --input-padding-bot: 0.2rem;
+    --input-padding-left: 1rem;
+    --input-padding-right: 2rem;
+    --input-font-size: 1.2rem;
+    --input-width: 240px;
+
+    --checkbox-size: 28px;
+    --checkbox-inner-size: 16px;
+
+    --radio-size: 28px;
+    --radio-inner-size: 16px;
+}
+::selection {
+	color: rgb(124, 0, 0);
+	background-color: #ff5c5c;
+}
+@-webkit-keyframes entrance {
+    to,
+    20%,
+    40%,
+    60%,
+    80% {
+        opacity: 1;
+    }
+    from,
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        opacity: 0;
+    }
+}
+body {
+    font-family: "Oxanium", serif;
+    font-size: 20px;
+    font-weight: 200;
+    color: rgb(255, 92, 92);
+    align-items: center;
+    cursor: url("../..//assets/cursor.png"), auto;
+overflow: auto;
+}
+b{
+  color: rgb(255, 255, 255);
+  font-weight: lighter;
+}
+a{
+  color: white;
+text-decoration: none;
+}
+::-webkit-scrollbar {
+width: 8px; 
+background: #ff5c5c;
+border: 0px  
+height: 200px;
+}
+
+::-webkit-scrollbar-thumb {
+background: #ff003c;
+
+}
+    </style>
+
+  <h2 class="cyber-h">NEWSLETTERS – JANUARY EDITION 2025</h2>
+Hey there, fellow developer!
+Welcome to this month's edition of Developer's Digest, where I share my latest projects, coding adventures, and thoughts on the ever-evolving world of software development. Whether you're a seasoned coder, a tech enthusiast, or just curious about what I've been up to, there's something here for you!
+<br><br>
+I'm currently developing this month of 2025 an inventory management project using SQLite3 and JavaFX. This desktop application runs in a local environment, meaning each installation has its own independent database for managing products, stock, and categories. At the moment, users can add, update, and delete inventories, products, and categories via the console (for unit testing), while the UI supports essential inventory operations like adding, updating, and deleting entries.
+<br><br>
+The project will be available on my <a href="https://github.com/RegreDanger">GITHUB</a>. My goal is to make it scalable by migrating to Spring Boot and React (with Electron), enabling multi-user access in future updates. Right now, the project is in active development, with a focus on refining the UI and core features for a stable experience. A stable version is not available yet, but progress is steady. If you're interested in following the development, stay tuned for updates! I'll be sharing news, feature highlights, and release plans through the newsletter. Any feedback or suggestions are always welcome. Feel free to reach out to me via Discord or email!
+<br><br>
+<h2 class="cyber-h">OTHER PROJECTS</h2>
+<b>MediaFire Link Sharing Platform (Technology stack to be determined)</b>. A web platform that will allow users to store and organize shared MediaFire links securely. The system ensures privacy, allowing users to manage their shared files without direct file access. Future updates will include user authentication, rating systems, link categorization, and libraries to better organize the content. Additionally, I plan to include community-driven features, where users can collaborate, share resources, and vote on content. The tech stack is still being determined, but these features will ensure an intuitive and engaging user experience.
+<br><br>
+<b>Automation Scripts & Productivity Tools (Python - Selenium, VBA, Excel)</b> I develop custom scripts to automate repetitive tasks, such as file management, data processing, and web automation. These scripts help save time by handling routine operations efficiently. Some of my recent automation projects include:
+<br><br>
+<b>></b>Launching JAR files automatically based on schedules.
+<br><br>
+<b>></b>Generating charts from CSV files for data visualization.
+<br><br>
+<b>></b>Automating web tasks using Selenium, such as form submissions and data scraping.
+<br><br>
+<h2 class="cyber-h">WHAT'S NEW ON THE SITE?</h2>
+The site is almost finished and Skye is expected to finish it up in early February. Sections like <b>SITEMAP</b>, <b>SERVICES</b>, and <b>BLOGS</b> have just been finished and are now live, leaving the <b>RESOURCES</b> and <b>ABOUT</b> pages in development. We're currently thinking that there might be more updates in the future, perhaps more sections or special things, but for now, the site will remain simple and short on features. Until then, stay tuned for future updates! Remember that whenever you need to see more, you're free to explore the <a href="https://luvrksknskyejourney.org/">SKYE JOURNEY</a> site, which is still under constant development as of now.
+<br><br>
+<h2 class="cyber-h">OUR LITTLE WORK TEAM</h2>
+We have upcoming projects, RegreDanger, Skye and Selysun! Currently Selysun's website is still in development by Skye, where you can see more of her art. The three of us plan to share a nice themed web app with weather, notes, diary, music, clock and calendar functions in a dashboard in the future. The members of this project are the three of us, Selysun as a designer and illustrator, Skye as a frontend developer and Regre as a backend developer. We are excited to share this because it is an important project that we believe will be worthwhile in the future, and of course, it will be free! This project has not been started yet, it does not even have a name yet and it has not even reached its Beta version other than drafts that Skye has made for it and that he may show in his <b>KO-FI</b>, until then, when the project finally gets the green light, it will be available on the <a href="https://github.com/luvrksnskye">SKYE'S GITHUB</a>
+<br><br>
+<h2 class="cyber-h">TESTING AVAILABILITY</h2>
+Currently, my projects are in active development, and I am implementing testing procedures to ensure a reliable and smooth experience for users. I am working on both unit tests and integration tests to catch issues early and improve the stability of the core functionalities.
+<br><br>
+<b>></b>Unit Testing: I’m currently writing tests for the core features of my Inventory Management System using tools like JUnit and Mockito. This ensures that the individual components of the app work as expected before integration.
+<br><br>
+<b>></b>UI Testing: For the UI of my desktop app, I plan to implement automated UI testing to simulate user interactions and ensure everything functions smoothly.
+<br><br>
+<b>></b>Beta Testing: I will be opening up the project for beta testing in the near future, where interested users can test early versions of the software. Feedback from beta testers will be essential to iron out any bugs, improve user experience, and add any necessary features.
+<br><br>
+Feel free to get in touch if you are interested in participating in the testing phases or want to report any issues you’ve encountered. You can reach out to me through Discord, GitHub, or via email.
+</body>
+</html>
