@@ -219,11 +219,22 @@ body {
 .ui .list .list__item.sub-item {
     position: relative;
     left: 4%;
-    max-width: 96%;
+    max-width: 88%;
 }
 
 .ui .list .list__item.sub-item:before {
     content: "› ";
+    margin-right: .5rem;
+}
+
+.ui .list .list__item.inner-sub-item {
+    position: relative;
+    left: 8%;
+    max-width: 88%;
+}
+
+.ui .list .list__item.inner-sub-item::before {
+    content: "›› ";
     margin-right: .5rem;
 }
 
@@ -506,7 +517,8 @@ body {
 #diaryFrame {
   overflow: auto;
   border: none;
-  width: 770px;
+  width: 104%;
   height: 520px;
+  cursor: url("..//assets/cursor.png"), auto;
   background: transparent;
 }

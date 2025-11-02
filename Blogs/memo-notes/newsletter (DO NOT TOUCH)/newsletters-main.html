@@ -1,182 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Regre Danger</title>
-    <link rel="icon" type="image/x-icon" href="../../../assets/background and visuals/favicon.png">
-  </head>
-  <body>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
-      /*#region headings*/
-.cyber-h
-{
-    display: block;
-    width: 60%;
-    color:#ff5c5c;
-    -webkit-animation: entrance 400ms 1400ms linear backwards 1;
-	animation: entrance 400ms 1400ms linear backwards 1;
-}
+	<head>
+		<meta charset="utf-8" />
+		<title>Regre Danger</title>
+		<link rel="stylesheet" href="../blog-styles.css">
+		<link rel="icon" type="image/x-icon" href="../../../assets/background and visuals/favicon.png" />
+	</head>
+	<body>
 
-.cyber-h::after
-{
-    content: ' ';
-    width: 70%;
-    height: 6px;
-    display: block;
-    background-color: var(--red);
-    clip-path: polygon(0 0, 0 100%, 10% 100%, calc(10% + 4px) 2px, 100% 2px, 100% 0);
-    -webkit-animation: entrance 400ms 1400ms linear backwards 1;
-	animation: entrance 400ms 1400ms linear backwards 1;
-}
+		<h2 class="cyber-h">NEWSLETTERS</h2>
+		Welcome to RegreDanger's newsletter, where we share his journey through the ever-evolving world of software development. Whether you're a fellow coder, a tech enthusiast, or just curious about what I've been working on, this
+		newsletter is packed with insights, project updates, coding tips, and the latest trends in the industry. Information from our team is also shared here! Updates from <b>SKYE JOURNEY</b> and other connected sites. <br />
+		<br />
+		Each edition will cover:
+		<br />
+		<br />
+		<b>></b> Personal project highlights – What I’ve been building and learning <br />
+		<br />
+		<b>></b> Tech deep dives – Exploring new tools, frameworks, and best practices <br />
+		<br />
+		<b>></b> Useful resources – Articles, tutorials, and tools I’ve found helpful <br />
+		<br />
+		<b>></b> Upcoming plans – A sneak peek into what’s next <br />
+		<br />
+		I’d love to hear from you, so feel free to reply with your thoughts, questions, or just to say hi on the chat! Now, let’s dive into this month’s edition.
 
-h1.cyber-h
-{
-    font-size: 3.0rem;
-    margin: 2.0rem 0;
-    width: 100%;
-}
-
-h2.cyber-h
-{
-    font-size: 2.5rem;
-    margin: 1.6rem 0;
-    width: 90%;
-}
-
-h3.cyber-h
-{
-    font-size: 2rem;
-    margin: 1.4rem 0;
-    width: 80%;
-}
-
-h4.cyber-h
-{
-    font-size: 1.5rem;
-    margin: 1.2rem 0;
-    width: 70%;
-}
-
-h5.cyber-h
-{
-    font-size: 1.0rem;
-    margin: 1.0rem 0;
-    width: 60%;
-}
-
-h6.cyber-h
-{
-    font-size: 1.0rem;
-    margin: 1.0rem 0;
-    font-weight: 400;
-    width: 60%;
-}
-
-:root 
-{
-    --root-font-size: 18px;
-
-    --yellow: #f8ef02;
-    --cyan: #00ffd2;
-    --red: #ff003c;
-    --blue: #136377;
-    --green: #446d44;
-    --purple: purple;
-    --black: #000;
-    --white: #fff;
-    --dark: #333;
-
-    --fg: var(--black);
-    --bg: transparent;
-    --ac: var(--black);
-
-    --yellow-cyberpunk-font: #feef00;
-    --cyan-cyberpunk-font1:#46dffb;
-    --cyan-cyberpunk-font2:#45aefb;
-
-    --banner-color1: var(--purple); 
-    --banner-color2: var(--red);
-    --banner-color3: var(--yellow); 
-    --banner-color4: var(--cyan); 
-    --banner-gradient-stop: 405px;
-
-    --input-padding-top: 0px;
-    --input-padding-bot: 0.2rem;
-    --input-padding-left: 1rem;
-    --input-padding-right: 2rem;
-    --input-font-size: 1.2rem;
-    --input-width: 240px;
-
-    --checkbox-size: 28px;
-    --checkbox-inner-size: 16px;
-
-    --radio-size: 28px;
-    --radio-inner-size: 16px;
-}
-::selection {
-	color: rgb(124, 0, 0);
-	background-color: #ff5c5c;
-}
-@-webkit-keyframes entrance {
-    to,
-    20%,
-    40%,
-    60%,
-    80% {
-        opacity: 1;
-    }
-    from,
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-        opacity: 0;
-    }
-}
-body {
-    font-family: "Oxanium", serif;
-    font-size: 20px;
-    font-weight: 200;
-    color: rgb(255, 92, 92);
-    align-items: center;
-    cursor: url("../..//assets/cursor.png"), auto;
-overflow: auto;
-}
-b{
-  color: rgb(255, 255, 255);
-  font-weight: lighter;
-}
-::-webkit-scrollbar {
-width: 8px; 
-background: #ff5c5c;
-border: 0px  
-height: 200px;
-}
-
-::-webkit-scrollbar-thumb {
-background: #ff003c;
-
-}
-    </style>
-
-  <h2 class="cyber-h">NEWSLETTERS</h2>
-  Welcome to RegreDanger's newsletter, where we share his journey through the ever-evolving world of software development. Whether you're a fellow coder, a tech enthusiast, or just curious about what I've been working on, this newsletter is packed with insights, project updates, coding tips, and the latest trends in the industry. Information from our team is also shared here! Updates from <b>SKYE JOURNEY</b> and other connected sites.
-<br><br>
-Each edition will cover:
-<br><br>
-<b>></b> Personal project highlights – What I’ve been building and learning
-<br><br>
-<b>></b> Tech deep dives – Exploring new tools, frameworks, and best practices
-<br><br>
-<b>></b> Useful resources – Articles, tutorials, and tools I’ve found helpful
-<br><br>
-<b>></b> Upcoming plans – A sneak peek into what’s next
-<br><br>
-I’d love to hear from you, so feel free to reply with your thoughts, questions, or just to say hi on the chat! Now, let’s dive into this month’s edition.
-
-<h2 class="cyber-h"></h2>
-
-  </body>
+		<h2 class="cyber-h"></h2>
+	</body>
 </html>

@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     backgroundVideo.style.opacity = 1;
     
     // Unmute and play background video and music
-    backgroundVideoElement.muted = false;
-    backgroundVideoElement.volume = 1;
+    backgroundVideoElement.muted = true;
+    backgroundVideoElement.volume = 0;
     backgroundVideoElement.play();
+    backgroundVideoElement.volume = 1;
+    backgroundVideoElement.muted = false;
 });
